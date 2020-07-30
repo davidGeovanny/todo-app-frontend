@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { ActivityCard } from './ActivityCard';
 import { filterActivities } from '../../helpers/filter';
-import { clearActiveProject } from '../../actions/projectActions';
 
 export const Activities = () => {
 
-    const dispatch = useDispatch();
-
-    // const { activeProject } = useSelector(state => state.projects);
     const { activities } = useSelector(state => state.activities);
     
     const initState = {
@@ -23,12 +19,6 @@ export const Activities = () => {
             filterActivities( activities )
         );
     }, [ activities ]);
-
-    useEffect(() => {
-        return () => {
-            dispatch( clearActiveProject() );
-        }
-    }, [ dispatch ])
 
     return (
         <div className="row justify-content-around blue-grey lighten-5 z-depth-1 m-1">

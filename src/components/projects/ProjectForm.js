@@ -31,8 +31,10 @@ export const ProjectForm = ({ history }) => {
 	const { formTitle, formArea, formDescription } = formValues;
 
 	useEffect(() => {
-		if (idProject && !loading) {
+		if ( idProject && !loading ) {
 			dispatch( setActiveProject( idProject ) );
+		} else if( !idProject && !loading ) {
+			dispatch( clearActiveProject() );
 		}
 	}, [dispatch, idProject, loading]);
 	

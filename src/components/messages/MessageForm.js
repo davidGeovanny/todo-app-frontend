@@ -8,7 +8,7 @@ export const MessageForm = () => {
     const dispatch = useDispatch();
     
     const [formValues, handleInputChange] = useForm({
-        textMessage: 'Un comentario cualquiera'
+        textMessage: ''
     });
 
     const { textMessage } = formValues;

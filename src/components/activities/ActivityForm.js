@@ -43,6 +43,7 @@ export const ActivityForm = () => {
                                     type="text" 
                                     name='formTitle'
                                     value={ formTitle }
+                                    autoComplete='off'
                                     onChange={ handleInputChange }
                                     placeholder="Ingrese el nombre de la actividad"
                                 />

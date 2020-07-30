@@ -79,6 +79,7 @@ export const startAddNote = ( textNote ) => {
         try {
 
             const { id } = getState().activities.activeActivity;
+            const { activeProject } = getState().projects;
 
             Swal.fire({
                 title: 'Agregando nota',
@@ -114,6 +115,8 @@ export const startAddNote = ( textNote ) => {
             Swal.close();
             dispatch( hideSideModal() );
             dispatch( addedNote( body.note ) );
+            dispatch( doneActivity( id, body.activityDone ) );
+            dispatch( doneProject( activeProject.id, body.projectDone ) );
         } catch (error) {
             console.log(error);
         }
@@ -298,9 +301,13 @@ export const startAddActivity = ( title, description ) => {
                 });
             }
 
+            body.activity.notes = [];
+            body.activity.messages = [];
+
             Swal.close();
             dispatch( hideModal() );
             dispatch( addedActivity( body.activity ) );
+            dispatch( doneProject( id, false ) );
         } catch (error) {
             console.log(error);
         }
@@ -376,6 +383,7 @@ export const startDeleteActivity = () => {
         try {
 
             const { id } = getState().activities.activeActivity;
+            const activeProject = getState().projects.activeProject;
 
             Swal.fire({
                 title: 'Eliminando actividad',
@@ -409,6 +417,7 @@ export const startDeleteActivity = () => {
             Swal.close();
             dispatch( hideConfirmModal() );
             dispatch( hideModal() );
+            dispatch( doneProject( activeProject.id, body.projectDone ) );
             dispatch( deletedActivity( body.activity ) );
         } catch (error) {
             console.log(error);

@@ -15,7 +15,6 @@ export const ActivityCard = ({
 	done,
 	date,
 }) => {
-	console.log(notes);
     const dispatch = useDispatch();
     
     const variant = done ? 'success' : 'danger';

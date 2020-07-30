@@ -175,7 +175,9 @@ export const ActivityScreen = () => {
 
             {
                 ( activities.length <= 0 )
-                    ? <NoActivities />
+                    ? <NoActivities
+                        onClickFormActivity={onClickFormActivity}
+                    />
                     : <Activities />
             }
 

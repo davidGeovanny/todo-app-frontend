@@ -9,7 +9,7 @@ export const NoteForm = () => {
     const dispatch = useDispatch();
     
     const [formValues, handleInputChange] = useForm({
-        textNote: 'Nueva nota'
+        textNote: ''
     });
     const { textNote } = formValues;
 
@@ -26,6 +26,7 @@ export const NoteForm = () => {
                     type="text" 
                     placeholder="Ingrese una nota" 
                     name='textNote'
+                    autoComplete='off'
                     value={ textNote }
                     onChange={ handleInputChange }
                 />

@@ -1,6 +1,6 @@
 import React from "react";
 
-export const NoActivities = () => {
+export const NoActivities = ({onClickFormActivity}) => {
 	return (
 		<div className="row justify-content-md-center">
 			<div className="col-10">
@@ -25,7 +25,10 @@ export const NoActivities = () => {
 
 					<hr className="my-4 pb-2" />
 
-					<button className="btn btn-lg btn-indigo btn-rounded">
+					<button 
+						className="btn btn-lg btn-indigo btn-rounded"
+						onClick={onClickFormActivity}
+					>
 						Crear actividad ahora <i className="fas fa-tasks"></i>
 					</button>
 				</div>
